@@ -1,0 +1,44 @@
+#Add Owner with Timestamp to Website
+
+WebUI.openBrowser('')
+
+WebUI.navigateToUrl('http://clinic.doveryai-no-proveryai.com:9966/petclinic/swagger-ui.html')
+
+WebUI.delay(4)
+
+WebUI.navigateToUrl('https://clinic.doveryai-no-proveryai.com/petclinic/welcome')
+
+WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/a_Owners'))
+
+WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/span_Add New'))
+
+WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_First Name_firstName'), 
+    'Adonis' + System.nanoTime())
+
+WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_Last Name_lastName'), 
+    'Creed')
+
+WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_Address_address'), 
+    '2442 Milky Way')
+
+WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_City_city'), 
+    'Phillidelphia')
+
+WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_Telephone_telephone'), 
+    '5125581473')
+
+WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/button_Add Owner'))
+
+#Navigate back to swagger page in order to verify that owner was succesfully created 
+
+WebUI.navigateToUrl('http://clinic.doveryai-no-proveryai.com:9966/petclinic/swagger-ui.html')
+
+WebUI.click(findTestObject('Object Repository/Page_Swagger UI/a_ShowHide'))
+
+WebUI.click(findTestObject('Object Repository/Page_Swagger UI/a_get'))
+
+WebUI.click(findTestObject('Object Repository/Page_Swagger UI/input_Headers_submit'))
+
+WebUI.closeBrowser()
+
+
