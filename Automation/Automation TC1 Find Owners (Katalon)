@@ -1,5 +1,5 @@
 
-#Find owners using Katalon Tools
+//Find owners using Katalon Tools
 
 
 
@@ -8,6 +8,8 @@ WebUI.openBrowser('')
 WebUI.navigateToUrl('http://Owner_admin:admin@clinic.doveryai-no-proveryai.com:9966/petclinic/swagger-ui.html')
 
 WebUI.navigateToUrl('https://clinic.doveryai-no-proveryai.com/petclinic/welcome')
+
+//Navigate to the owners section of the webpage 
 
 WebUI.click(findTestObject('Spring Pet Owners Clinic/Page_SpringPetclinicAngular/a_Owners'))
 
