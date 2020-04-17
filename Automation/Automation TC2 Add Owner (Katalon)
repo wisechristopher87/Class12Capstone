@@ -1,4 +1,4 @@
-#Add Owner with Timestamp to Website
+//Add Owner with Timestamp to Website
 
 WebUI.openBrowser('')
 
@@ -8,7 +8,11 @@ WebUI.delay(4)
 
 WebUI.navigateToUrl('https://clinic.doveryai-no-proveryai.com/petclinic/welcome')
 
+//Navigate to owner section of the webpage
+
 WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/a_Owners'))
+
+//Add Owner information to create owner
 
 WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/span_Add New'))
 
@@ -26,10 +30,12 @@ WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_Sp
 
 WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_Telephone_telephone'), 
     '5125581473')
+    
+// Click to add owner to the database
 
 WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/button_Add Owner'))
 
-#Navigate back to swagger page in order to verify that owner was succesfully created 
+//Navigate back to swagger page in order to verify that owner was succesfully created 
 
 WebUI.navigateToUrl('http://clinic.doveryai-no-proveryai.com:9966/petclinic/swagger-ui.html')
 
