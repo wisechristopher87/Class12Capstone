@@ -1,0 +1,78 @@
+//Add Owner with Timestamp to Website
+
+WebUI.openBrowser('')
+
+WebUI.navigateToUrl('http://admin:admin@clinic.doveryai-no-proveryai.com:9966/petclinic/swagger-ui.html')
+
+WebUI.navigateToUrl('https://clinic.doveryai-no-proveryai.com/petclinic/owners')
+
+WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/a_Owners'))
+
+WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/span_Add New'))
+
+def firstname = CustomKeywords.'owners.generate_First.generateFirst'()
+
+WebUI.setText(findTestObject('Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_First Name_firstName'), 
+    firstname)
+
+def lastname = CustomKeywords.'owners.generate_Last.generateLast'()
+
+WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_Last Name_lastName'), 
+    lastname)
+
+def address = CustomKeywords.'owners.generate_Address.generateAddress'()
+
+WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_Address_address'), 
+    address)
+
+def city = CustomKeywords.'owners.generate_City.generateCity'()
+
+WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_City_city'), 
+    city)
+
+def telephone = CustomKeywords.'owners.generate_Telephone.generateTelephone'()
+
+WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_Telephone_telephone'), 
+    telephone)
+
+WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/button_Add Owner'))
+
+not_run: WebUI.closeBrowser()
+
+//Validation Code using JsonSlurper 
+def response = WS.sendRequest(findTestObject('Object Repository/OwnerAPI' //gets Owner API data and store in variable called "response"
+        ))
+
+def slurper = new JsonSlurper()
+
+def result = slurper.parseText(response.getResponseBodyContent( //JsonSlurper parse api body content
+        ))
+
+def value = result[(result.size() - 1)]
+
+//Verify that the owner with the timestamp was created
+WS.verifyEqual(firstname, value.firstName)
+
+WS.verifyEqual(lastname, value.lastName)
+
+WS.verifyEqual(address, value.address)
+
+WS.verifyEqual(city, value.city)
+
+WS.verifyEqual(telephone, value.telephone)
+
+
+println('..value extracted is : ' + value)
+
+println((('..Firstname is: ' + firstname) + ' and ') + value.firstName)
+
+println((('..Lastname is: ' + lastname) + ' and ') + value.lastName)
+
+println((('..Address is: ' + address) + ' and ') + value.address)
+
+println((('..City is: ' + city) + ' and ') + value.city)
+
+println((('..Telephone is: ' + telephone) + 'and ') + value.telephone)
+
+println(result.size())
+
