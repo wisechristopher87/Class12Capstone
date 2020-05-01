@@ -2,6 +2,8 @@
 
 WebUI.openBrowser('')
 
+//Navigate to the page & login to the website as an Admin
+
 WebUI.navigateToUrl('http://admin:admin@clinic.doveryai-no-proveryai.com:9966/petclinic/swagger-ui.html')
 
 WebUI.navigateToUrl('https://clinic.doveryai-no-proveryai.com/petclinic/owners')
@@ -9,6 +11,8 @@ WebUI.navigateToUrl('https://clinic.doveryai-no-proveryai.com/petclinic/owners')
 WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/a_Owners'))
 
 WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/span_Add New'))
+
+//Enter Owner information
 
 def firstname = CustomKeywords.'owners.generate_First.generateFirst'()
 
@@ -34,6 +38,8 @@ def telephone = CustomKeywords.'owners.generate_Telephone.generateTelephone'()
 
 WebUI.setText(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/input_Telephone_telephone'), 
     telephone)
+	
+//Add owner to database 
 
 WebUI.click(findTestObject('Object Repository/Spring Pet Owners Clinic/Page_SpringPetclinicAngular/Page_SpringPetclinicAngular/button_Add Owner'))
 
