@@ -1,5 +1,0 @@
-Self Learning Results 
-
- The 3306 TCP (MySQL) Port is open. If left open or unfiltered it is vulnerable and could result in the unauthorized access of the software database. 
-	I do recommend that before this website is rolled out that precautions are taken to better filter or hide these ports
-	
